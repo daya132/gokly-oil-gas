@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import openseaLogo from "@/assets/partners/opensea.jpg";
+import openseaLogo from "@/assets/partners/opeansea.jpg";
 import shellLogo from "@/assets/partners/shell.png";
 import nnpcLogo from "@/assets/partners/nnpc.png";
 import ncdmbLogo from "@/assets/partners/ncdmb.png";
