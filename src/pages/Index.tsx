@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import AboutPreview from "@/components/AboutPreview";
 import ServicesSection from "@/components/ServicesSection";
+import PartnersSection from "@/components/PartnersSection";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -76,6 +77,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Partners */}
+      <PartnersSection />
 
       {/* CTA Banner */}
       <section className="py-20 bg-primary">

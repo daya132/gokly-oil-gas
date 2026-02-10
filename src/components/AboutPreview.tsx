@@ -53,13 +53,19 @@ const AboutPreview = () => {
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed mb-6">
               Gokly Oil and Gas Services Limited is a leading provider of comprehensive solutions 
-              to the oil and gas industry. Our mission is to deliver exceptional services that 
+              to the oil and gas industry. With over a decade of operational excellence across 
+              Nigeria's midstream and upstream sectors, we deliver exceptional services that 
               enhance operational efficiency, safety, sustainability, and stakeholders' collaboration.
             </p>
+            <p className="text-muted-foreground font-body leading-relaxed mb-4">
+              Our portfolio spans over 16 specialized service areas—from drilling and well engineering 
+              to EPCI pipeline projects, FPSO maintenance contracts, and environmental management. 
+              Partnering with industry leaders like Shell, NNPC, and NCDMB, our track record of 
+              200+ successful projects speaks for itself.
+            </p>
             <p className="text-muted-foreground font-body leading-relaxed mb-8">
-              Our track record speaks for itself, with a history of successful projects and satisfied 
-              clients. We understand the intricacies of the oil and gas industry, and our team is 
-              always ready to collaborate with you to achieve your goals.
+              We understand the intricacies of the oil and gas industry, and our team of 50+ 
+              expert professionals is always ready to collaborate with you to achieve your goals.
             </p>
 
             <div className="space-y-3 mb-8">
