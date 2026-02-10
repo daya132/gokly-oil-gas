@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
+import openseaLogo from "@/assets/partners/opensea.jpg";
 import shellLogo from "@/assets/partners/shell.png";
 import nnpcLogo from "@/assets/partners/nnpc.png";
 import ncdmbLogo from "@/assets/partners/ncdmb.png";
 import rainoilLogo from "@/assets/partners/rainoil.png";
-import openseaLogo from "@/assets/partners/opensea.png";
 import nmdpraLogo from "@/assets/partners/nmdpra.png";
+import nuprcLogo from "@/assets/partners/nuprc.jpeg"; 
+
 
 const partners = [
   { name: "Shell", logo: shellLogo },
@@ -13,6 +15,7 @@ const partners = [
   { name: "Rainoil", logo: rainoilLogo },
   { name: "Open Sea Oil & Gas", logo: openseaLogo },
   { name: "NMDPRA", logo: nmdpraLogo },
+  { name: "NUPRC", logo: nuprcLogo },
 ];
 
 const PartnersSection = () => {
