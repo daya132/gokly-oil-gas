@@ -30,7 +30,7 @@ const Contact = () => {
       if (error) throw error;
       toast.success("Message sent successfully! We'll get back to you soon.");
       setForm({ name: "", email: "", message: "" });
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Contact form error:", err);
       toast.error("Failed to send message. Please try again or email us directly.");
     } finally {
@@ -148,7 +148,7 @@ const Contact = () => {
               <div className="rounded-2xl overflow-hidden shadow-card border border-border h-[420px]">
                 <iframe
                   title="Gokly Oil and Gas Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5!2d6.2636!3d4.9267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x106a02!2sGokly+Oil+and+Gas+Services+Limited!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng&q=By+Okaka+Rd,+new+road,+Yenagoa+560212,+Bayelsa"
+                  src="https://www.google.com/maps?q=Gokly+Oil+and+Gas+Services+Limited,+Yenagoa,+Bayelsa&z=17&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
