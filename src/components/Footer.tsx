@@ -63,7 +63,7 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-gokly-gold flex-shrink-0 mt-0.5" />
                 <span className="text-sm opacity-70 font-body">
-                  Okobabian Plaza, Kaka New Road, Isaac Boro Expressway, Yenagoa, Bayelsa State
+                  By Okaka Rd, New Road, Yenagoa 560212, Bayelsa State
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -72,7 +72,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-gokly-gold flex-shrink-0" />
-                <span className="text-sm opacity-70 font-body">info@goklyoilandgas.com</span>
+                <a href="mailto:info@goklyoilandgas.com" className="text-sm opacity-70 hover:opacity-100 font-body transition-opacity">info@goklyoilandgas.com</a>
               </div>
             </div>
 

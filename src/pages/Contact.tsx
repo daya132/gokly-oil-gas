@@ -1,33 +1,41 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import heroImg from "@/assets/hero-oil-rig.jpg";
 
 const contactInfo = [
-  { icon: MapPin, label: "Address", value: "Okobabian Plaza, Kaka New Road, Isaac Boro Expressway, Yenagoa, Bayelsa State, Nigeria" },
-  { icon: Phone, label: "Phone", value: "+234 XXX XXX XXXX" },
-  { icon: Mail, label: "Email", value: "info@goklyoilandgas.com" },
-  { icon: Clock, label: "Working Hours", value: "Mon - Fri: 8:00 AM - 5:00 PM (WAT)" },
+  { icon: MapPin, label: "Address", value: "By Okaka Rd, New Road, Yenagoa 560212, Bayelsa State, Nigeria", href: undefined },
+  { icon: Phone, label: "Phone", value: "+234 XXX XXX XXXX", href: "tel:+234XXXXXXXX" },
+  { icon: Mail, label: "Email", value: "info@goklyoilandgas.com", href: "mailto:info@goklyoilandgas.com" },
+  { icon: Clock, label: "Working Hours", value: "Mon - Fri: 8:00 AM - 5:00 PM (WAT)", href: undefined },
 ];
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
       toast.error("Please fill in all fields.");
       return;
     }
     setLoading(true);
-    // Simulate send
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: { name: form.name.trim(), email: form.email.trim(), message: form.message.trim() },
+      });
+      if (error) throw error;
       toast.success("Message sent successfully! We'll get back to you soon.");
       setForm({ name: "", email: "", message: "" });
-    }, 1500);
+    } catch (err: any) {
+      console.error("Contact form error:", err);
+      toast.error("Failed to send message. Please try again or email us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -66,7 +74,13 @@ const Contact = () => {
                   <info.icon size={22} className="text-primary" />
                 </div>
                 <h3 className="font-heading font-bold text-sm text-foreground mb-2">{info.label}</h3>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed">{info.value}</p>
+                {info.href ? (
+                  <a href={info.href} className="text-primary font-body text-sm leading-relaxed hover:underline transition-colors">
+                    {info.value}
+                  </a>
+                ) : (
+                  <p className="text-muted-foreground font-body text-sm leading-relaxed">{info.value}</p>
+                )}
               </motion.div>
             ))}
           </div>
@@ -133,8 +147,8 @@ const Contact = () => {
               <p className="text-muted-foreground font-body mb-8">Visit us at our office in Yenagoa, Bayelsa State.</p>
               <div className="rounded-2xl overflow-hidden shadow-card border border-border h-[420px]">
                 <iframe
-                  title="Gokly Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31890.06!2d6.31!3d4.93!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x106a0290e1e7b8f7%3A0x2e0c4ee4c1f3a7e3!2sYenagoa%2C%20Bayelsa!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng"
+                  title="Gokly Oil and Gas Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5!2d6.2636!3d4.9267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x106a02!2sGokly+Oil+and+Gas+Services+Limited!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng&q=By+Okaka+Rd,+new+road,+Yenagoa+560212,+Bayelsa"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
