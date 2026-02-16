@@ -1,28 +1,35 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Target, Eye, Award, Users, Shield, Lightbulb, Clock, Globe, Wrench } from "lucide-react";
+import { CheckCircle2, Target, Eye } from "lucide-react";
 import teamImg from "@/assets/team-engineers.jpg";
 import engineerImg from "@/assets/engineer-pipeline.jpg";
 import drillingImg from "@/assets/drilling-engineers.jpg";
+import expertiseImg from "@/assets/about/expertise.jpg";
+import nationwideImg from "@/assets/about/nationwide.jpg";
+import fullCycleImg from "@/assets/about/full.jpg";
+import integrityImg from "@/assets/about/integrity.jpg";
+import excellenceImg from "@/assets/about/excellence.jpg";
+import innovationImg from "@/assets/about/innovative.jpg";
+import collaborationImg from "@/assets/about/collaboration.jpg";
 import PartnersSection from "@/components/PartnersSection";
 
 const coreValues = [
-  { icon: Shield, title: "Integrity", desc: "We uphold the highest ethical standards in every operation and relationship, ensuring transparency and accountability at all levels." },
-  { icon: Award, title: "Excellence", desc: "We strive for outstanding quality in every service we deliver, continuously raising the bar for industry standards." },
-  { icon: Lightbulb, title: "Innovation", desc: "We embrace cutting-edge technologies and forward-thinking methods to stay ahead of industry needs and deliver smarter solutions." },
-  { icon: Users, title: "Collaboration", desc: "We believe in building meaningful, long-term partnerships with all stakeholders—from communities to multinational operators." },
+  { img: integrityImg, title: "Integrity", desc: "We uphold the highest ethical standards in every operation and relationship, ensuring transparency and accountability at all levels." },
+  { img: excellenceImg, title: "Excellence", desc: "We strive for outstanding quality in every service we deliver, continuously raising the bar for industry standards." },
+  { img: innovationImg, title: "Innovation", desc: "We embrace cutting-edge technologies and forward-thinking methods to stay ahead of industry needs and deliver smarter solutions." },
+  { img: collaborationImg, title: "Collaboration", desc: "We believe in building meaningful, long-term partnerships with all stakeholders—from communities to multinational operators." },
 ];
 
 const stats = [
   { value: "10+", label: "Years of Excellence" },
-  { value: "600+", label: "Projects Delivered" },
+  { value: "200+", label: "Projects Delivered" },
   { value: "50+", label: "Expert Professionals" },
   { value: "16+", label: "Service Areas" },
 ];
 
 const milestones = [
-  { icon: Clock, title: "Established Expertise", desc: "Over a decade of operational excellence across Nigeria's midstream and upstream oil and gas sectors." },
-  { icon: Globe, title: "Nationwide Operations", desc: "Active operations spanning onshore and offshore facilities across key oil-producing regions including the Niger Delta." },
-  { icon: Wrench, title: "Full-Cycle Capabilities", desc: "From drilling and construction to FPSO maintenance and environmental management—we cover the complete value chain." },
+  { img: expertiseImg, title: "Established Expertise", desc: "Over a decade of operational excellence across Nigeria's midstream and upstream oil and gas sectors." },
+  { img: nationwideImg, title: "Nationwide Operations", desc: "Active operations spanning onshore and offshore facilities across key oil-producing regions including the Niger Delta." },
+  { img: fullCycleImg, title: "Full-Cycle Capabilities", desc: "From drilling and construction to FPSO maintenance and environmental management—we cover the complete value chain." },
 ];
 
 const About = () => {
@@ -88,7 +95,7 @@ const About = () => {
                 At Gokly Oil and Gas Services Limited, we believe in integrity, excellence, and innovation. Our track record speaks for itself, with a history of successful projects and satisfied clients. We understand the intricacies of the oil and gas industry, and our team is always ready to collaborate with you to achieve your goals.
               </p>
               <p className="text-muted-foreground font-body leading-relaxed mb-5">
-                Operating across Nigeria's downstream, midstream and upstream sectors, we bring decades of combined experience to every project, ensuring world-class outcomes for our clients and communities. Our portfolio spans over 16 specialized service areas including drilling, well engineering, Engineering Procurement, Construction, and Installation(EPCI) pipeline projects, fabrication and maintenance contracts for Floating Production Storage and Offloadings(FPSOs), and comprehensive environmental management.
+                Operating across Nigeria's midstream and upstream sectors, we bring decades of combined experience to every project, ensuring world-class outcomes for our clients and communities. Our portfolio spans over 16 specialized service areas including drilling, well engineering, EPCI pipeline projects, fabrication and maintenance contracts for FPSOs, and comprehensive environmental management.
               </p>
               <p className="text-muted-foreground font-body leading-relaxed">
                 We take pride in our commitment to local content development, working closely with host communities and regulatory bodies such as NCDMB and NMDPRA to ensure compliance, capacity building, and sustainable value creation across Nigeria's energy landscape.
@@ -122,13 +129,16 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {milestones.map((m, i) => (
               <motion.div key={m.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-2xl bg-card border border-border shadow-card text-center"
+                className="group rounded-2xl overflow-hidden shadow-card border border-border"
               >
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                  <m.icon size={28} className="text-primary" />
+                <div className="relative h-52 overflow-hidden">
+                  <img src={m.img} alt={m.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
-                <h3 className="font-heading font-bold text-lg text-foreground mb-3">{m.title}</h3>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed">{m.desc}</p>
+                <div className="p-6 bg-card text-center">
+                  <h3 className="font-heading font-bold text-lg text-foreground mb-3">{m.title}</h3>
+                  <p className="text-muted-foreground font-body text-sm leading-relaxed">{m.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -150,7 +160,7 @@ const About = () => {
                 To deliver exceptional oil and gas services that enhance operational efficiency, safety, sustainability, and stakeholders' collaboration, while maintaining the highest standards of integrity and professionalism.
               </p>
               <ul className="space-y-2">
-                {["Drive operational efficiency through innovation", "Maintain zero-incident Health, Safety and Enviornment(HSE) performance", "Foster sustainable community development", "Build enduring client partnerships"].map((item, i) => (
+                {["Drive operational efficiency through innovation", "Maintain zero-incident HSE performance", "Foster sustainable community development", "Build enduring client partnerships"].map((item, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm font-body text-muted-foreground">
                     <CheckCircle2 size={14} className="text-primary flex-shrink-0" />
                     {item}
@@ -196,13 +206,16 @@ const About = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {coreValues.map((val, i) => (
               <motion.div key={val.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="text-center p-8 rounded-xl bg-card-gradient border border-border hover:shadow-card transition-all"
+                className="group rounded-2xl overflow-hidden shadow-card border border-border hover:shadow-elevated transition-all"
               >
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                  <val.icon size={28} className="text-primary" />
+                <div className="relative h-44 overflow-hidden">
+                  <img src={val.img} alt={val.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
-                <h3 className="font-heading font-bold text-foreground mb-2">{val.title}</h3>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed">{val.desc}</p>
+                <div className="p-5 bg-card text-center">
+                  <h3 className="font-heading font-bold text-foreground mb-2">{val.title}</h3>
+                  <p className="text-muted-foreground font-body text-sm leading-relaxed">{val.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>

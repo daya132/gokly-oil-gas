@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Star, Quote, User } from "lucide-react";
+import { Star, Quote, User, Send } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import refineryImg from "@/assets/refinery-dusk.jpg";
 
 const testimonials = [
@@ -33,15 +34,37 @@ const testimonials = [
 
 const Feedbacks = () => {
   const [form, setForm] = useState({ name: "", role: "", text: "", rating: 5 });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.text.trim()) {
       toast.error("Please fill in your name and feedback.");
       return;
     }
-    toast.success("Thank you for your feedback!");
-    setForm({ name: "", role: "", text: "", rating: 5 });
+    if (form.name.trim().length > 100 || form.role.trim().length > 100 || form.text.trim().length > 1000) {
+      toast.error("Input exceeds maximum allowed length.");
+      return;
+    }
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("send-feedback-email", {
+        body: {
+          name: form.name.trim(),
+          role: form.role.trim(),
+          text: form.text.trim(),
+          rating: form.rating,
+        },
+      });
+      if (error) throw error;
+      toast.success("Thank you for your feedback! It has been sent to our team.");
+      setForm({ name: "", role: "", text: "", rating: 5 });
+    } catch (err) {
+      console.error("Feedback form error:", err);
+      toast.error("Failed to send feedback. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -176,9 +199,11 @@ const Feedbacks = () => {
 
             <button
               type="submit"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-heading font-bold text-sm rounded-full hover:opacity-90 transition-opacity shadow-soft"
+              disabled={loading}
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-heading font-bold text-sm rounded-full hover:opacity-90 transition-opacity shadow-soft disabled:opacity-50"
             >
-              Submit Feedback
+              {loading ? "Sending..." : "Submit Feedback"}
+              <Send size={16} />
             </button>
           </motion.form>
         </div>

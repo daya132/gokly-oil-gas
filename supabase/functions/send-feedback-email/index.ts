@@ -13,27 +13,25 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, message } = await req.json();
+    const { name, role, text, rating } = await req.json();
 
-    // Validate inputs
-    if (!name || !email || !message) {
+    if (!name || !text) {
       return new Response(
-        JSON.stringify({ error: "All fields are required" }),
+        JSON.stringify({ error: "Name and feedback are required" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    if (name.length > 100 || email.length > 255 || message.length > 1000) {
+    if (name.length > 100 || (role && role.length > 100) || text.length > 1000) {
       return new Response(
         JSON.stringify({ error: "Input exceeds maximum length" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (typeof rating !== "number" || rating < 1 || rating > 5) {
       return new Response(
-        JSON.stringify({ error: "Invalid email address" }),
+        JSON.stringify({ error: "Invalid rating" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -48,6 +46,11 @@ serve(async (req) => {
       );
     }
 
+    const sanitize = (str: string) =>
+      str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+    const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -56,18 +59,18 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         from: "Gokly Website <onboarding@resend.dev>",
-        to: ["info@goklyoilandgas.com"],
-        subject: `New Contact Form Message from ${name}`,
+        to: ["goklyoilandgasdesk@gmail.com"],
+        subject: `New Client Feedback from ${sanitize(name)}`,
         html: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${name.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p>
-          <p><strong>Email:</strong> ${email.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>")}</p>
+          <h2>New Client Feedback</h2>
+          <p><strong>Name:</strong> ${sanitize(name)}</p>
+          ${role ? `<p><strong>Role / Company:</strong> ${sanitize(role)}</p>` : ""}
+          <p><strong>Rating:</strong> ${stars} (${rating}/5)</p>
+          <p><strong>Feedback:</strong></p>
+          <p>${sanitize(text).replace(/\n/g, "<br>")}</p>
           <hr>
-          <p style="color: #888; font-size: 12px;">Sent from the Gokly Oil &amp; Gas website contact form.</p>
+          <p style="color: #888; font-size: 12px;">Sent from the Gokly Oil &amp; Gas website feedback form.</p>
         `,
-        reply_to: email,
       }),
     });
 
@@ -76,7 +79,7 @@ serve(async (req) => {
     if (!res.ok) {
       console.error("Resend API error:", data);
       return new Response(
-        JSON.stringify({ error: "Failed to send email" }),
+        JSON.stringify({ error: "Failed to send feedback" }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
