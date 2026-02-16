@@ -14,7 +14,7 @@ const coreValues = [
 
 const stats = [
   { value: "10+", label: "Years of Excellence" },
-  { value: "200+", label: "Projects Delivered" },
+  { value: "600+", label: "Projects Delivered" },
   { value: "50+", label: "Expert Professionals" },
   { value: "16+", label: "Service Areas" },
 ];
@@ -88,7 +88,7 @@ const About = () => {
                 At Gokly Oil and Gas Services Limited, we believe in integrity, excellence, and innovation. Our track record speaks for itself, with a history of successful projects and satisfied clients. We understand the intricacies of the oil and gas industry, and our team is always ready to collaborate with you to achieve your goals.
               </p>
               <p className="text-muted-foreground font-body leading-relaxed mb-5">
-                Operating across Nigeria's midstream and upstream sectors, we bring decades of combined experience to every project, ensuring world-class outcomes for our clients and communities. Our portfolio spans over 16 specialized service areas including drilling, well engineering, EPCI pipeline projects, fabrication and maintenance contracts for FPSOs, and comprehensive environmental management.
+                Operating across Nigeria's downstream, midstream and upstream sectors, we bring decades of combined experience to every project, ensuring world-class outcomes for our clients and communities. Our portfolio spans over 16 specialized service areas including drilling, well engineering, Engineering Procurement, Construction, and Installation(EPCI) pipeline projects, fabrication and maintenance contracts for Floating Production Storage and Offloadings(FPSOs), and comprehensive environmental management.
               </p>
               <p className="text-muted-foreground font-body leading-relaxed">
                 We take pride in our commitment to local content development, working closely with host communities and regulatory bodies such as NCDMB and NMDPRA to ensure compliance, capacity building, and sustainable value creation across Nigeria's energy landscape.
@@ -150,7 +150,7 @@ const About = () => {
                 To deliver exceptional oil and gas services that enhance operational efficiency, safety, sustainability, and stakeholders' collaboration, while maintaining the highest standards of integrity and professionalism.
               </p>
               <ul className="space-y-2">
-                {["Drive operational efficiency through innovation", "Maintain zero-incident HSE performance", "Foster sustainable community development", "Build enduring client partnerships"].map((item, i) => (
+                {["Drive operational efficiency through innovation", "Maintain zero-incident Health, Safety and Enviornment(HSE) performance", "Foster sustainable community development", "Build enduring client partnerships"].map((item, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm font-body text-muted-foreground">
                     <CheckCircle2 size={14} className="text-primary flex-shrink-0" />
                     {item}

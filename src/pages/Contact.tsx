@@ -6,9 +6,9 @@ import { supabase } from "@/integrations/supabase/client";
 import heroImg from "@/assets/hero-oil-rig.jpg";
 
 const contactInfo = [
-  { icon: MapPin, label: "Address", value: "By Okaka Rd, New Road, Yenagoa 560212, Bayelsa State, Nigeria", href: undefined },
-  { icon: Phone, label: "Phone", value: "+234 XXX XXX XXXX", href: "tel:+234XXXXXXXX" },
-  { icon: Mail, label: "Email", value: "info@goklyoilandgas.com", href: "mailto:info@goklyoilandgas.com" },
+  { icon: MapPin, label: "Address", value: "Okobabian Plaza by Okaka New Road, Isaac Boro Expressway, Yenagoa, Bayelsa State, Nigeria", href: undefined },
+  { icon: Phone, label: "Phone", value: "+234(0)9014770978", href: "tel:+234(0)9014770978" },
+  { icon: Mail, label: "Email", value: "goklyoilandgasdesk@gmail.com", href: "mailto:goklyoilandgasdesk@gmail.com" },
   { icon: Clock, label: "Working Hours", value: "Mon - Fri: 8:00 AM - 5:00 PM (WAT)", href: undefined },
 ];
 

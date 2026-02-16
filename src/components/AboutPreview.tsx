@@ -59,9 +59,10 @@ const AboutPreview = () => {
             </p>
             <p className="text-muted-foreground font-body leading-relaxed mb-4">
               Our portfolio spans over 16 specialized service areas—from drilling and well engineering 
-              to EPCI pipeline projects, FPSO maintenance contracts, and environmental management. 
+              to  Engineering Procurement, Construction, and Installation (EPCI) pipeline projects, Floating Production Storage and Offloading
+              (FPSO) maintenance contracts, and environmental management. Floating Production Storage and Offloading
               Partnering with industry leaders like Shell, NNPC, and NCDMB, our track record of 
-              200+ successful projects speaks for itself.
+              600+ successful projects speaks for itself.
             </p>
             <p className="text-muted-foreground font-body leading-relaxed mb-8">
               We understand the intricacies of the oil and gas industry, and our team of 50+ 

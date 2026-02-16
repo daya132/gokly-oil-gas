@@ -1,21 +1,21 @@
 import { motion } from "framer-motion";
 
 import trainingImg from "@/assets/services/training.jpg";
-import facilityImg from "@/assets/services/facility-management.jpg";
-import consultingImg from "@/assets/services/consulting.jpg";
-import safetyImg from "@/assets/services/safety.jpg";
+import facilityImg from "@/assets/services/management.png";
+import consultingImg from "@/assets/services/consulting.png";
+import safetyImg from "@/assets/services/safety.png"
 import drillingImg from "@/assets/services/drilling.jpg";
 import constructionImg from "@/assets/services/construction.jpg";
 import procurementImg from "@/assets/services/procurement.jpg";
 import environmentalImg from "@/assets/services/environmental.jpg";
 import pipelineImg from "@/assets/services/pipeline.jpg";
-import offshoreImg from "@/assets/services/offshore-maintenance.jpg";
-import wasteImg from "@/assets/services/waste-management.jpg";
+import offshoreImg from "@/assets/services/offshore.jpg";
+import wasteImg from "@/assets/services/waste.jpg";
 import inspectionImg from "@/assets/services/inspection.jpg";
 import fabricationImg from "@/assets/services/fabrication.jpg";
-import tankImg from "@/assets/services/tank-dewatering.jpg";
+import tankImg from "@/assets/services/tank.jpg";
 import auditImg from "@/assets/services/audit.jpg";
-import gasPipelineImg from "@/assets/services/gas-pipeline.jpg";
+import gasPipelineImg from "@/assets/services/project.jpg";
 
 const services = [
   { image: trainingImg, title: "Specialized Oil & Gas Training", desc: "Comprehensive industry training programs including metal fabrication and pipe fitting." },

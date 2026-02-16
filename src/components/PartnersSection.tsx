@@ -10,12 +10,12 @@ import nuprcLogo from "@/assets/partners/nuprc.jpeg";
 
 const partners = [
   { name: "Shell", logo: shellLogo },
-  { name: "NNPC", logo: nnpcLogo },
-  { name: "NCDMB", logo: ncdmbLogo },
+  { name: "Nigeria National Petroleum Company (NNPC Limited)", logo: nnpcLogo },
+  { name: "Nigeria Content Development and Monitoring Board (NCDMB)", logo: ncdmbLogo },
   { name: "Rainoil", logo: rainoilLogo },
   { name: "Open Sea Oil & Gas", logo: openseaLogo },
-  { name: "NMDPRA", logo: nmdpraLogo },
-  { name: "NUPRC", logo: nuprcLogo },
+  { name: "Nigeria Midstream and Downstream Petroleum Regulatory Authorithy (NMDPRA)", logo: nmdpraLogo },
+  { name: "Nigeria Upstream Petroleum Regulatory Commission (NUPRC)", logo: nuprcLogo },
 ];
 
 const PartnersSection = () => {
@@ -53,7 +53,7 @@ const PartnersSection = () => {
                 <img
                   src={partner.logo}
                   alt={`${partner.name} logo`}
-                  className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  // className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                 />
               </div>
               <p className="font-heading font-semibold text-xs text-muted-foreground group-hover:text-foreground transition-colors text-center">

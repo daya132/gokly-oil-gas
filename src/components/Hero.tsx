@@ -45,7 +45,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg sm:text-xl text-primary-foreground/85 font-body leading-relaxed mb-10 max-w-2xl"
           >
-            Delivering exceptional midstream and upstream oil and gas solutions
+            Delivering exceptional downstream, midstream and upstream oil and gas solutions
             with integrity, excellence, and innovation across Nigeria and beyond.
           </motion.p>
 

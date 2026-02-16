@@ -43,7 +43,7 @@ const Navbar = () => {
             <motion.img
               src={logo}
               alt="Gokly Oil and Gas Services Limited"
-              className="h-14 w-14 object-contain"
+              className="h-20 w-20 object-contain"
               whileHover={{ rotate: 5, scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             />

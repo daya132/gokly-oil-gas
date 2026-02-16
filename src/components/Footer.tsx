@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <img src={logo} alt="Gokly Logo" className="h-12 w-12 object-contain" />
+              <img src={logo} alt="Gokly Logo" className="h-16 w-16 object-contain" />
               <div>
                 <h3 className="font-heading font-bold text-lg">Gokly Oil & Gas</h3>
                 <p className="text-sm opacity-60 font-body">Services Limited</p>
@@ -63,16 +63,16 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-gokly-gold flex-shrink-0 mt-0.5" />
                 <span className="text-sm opacity-70 font-body">
-                  By Okaka Rd, New Road, Yenagoa 560212, Bayelsa State
+                  Okobabian Plaza by Okaka New Road, Isaac Boro Expressway, Yenagoa, Bayelsa State, Nigeria.
                 </span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-gokly-gold flex-shrink-0" />
-                <span className="text-sm opacity-70 font-body">+234 XXX XXX XXXX</span>
+                <span className="text-sm opacity-70 font-body">+234(0)9014770978</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-gokly-gold flex-shrink-0" />
-                <a href="mailto:info@goklyoilandgas.com" className="text-sm opacity-70 hover:opacity-100 font-body transition-opacity">info@goklyoilandgas.com</a>
+                <a href="mailto:+goklyoilandgasdesk@gmail.com" className="text-sm opacity-70 hover:opacity-100 font-body transition-opacity">goklyoilandgasdesk@gmail.com</a>
               </div>
             </div>
 
