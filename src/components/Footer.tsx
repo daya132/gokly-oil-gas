@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-5">
               <img src={logo} alt="Gokly Logo" className="h-16 w-16 object-contain" />
               <div>
-                <h3 className="font-heading font-bold text-lg">Gokly Oil & Gas</h3>
+                <h3 className="font-heading font-bold text-lg">Gokly Oil and Gas</h3>
                 <p className="text-sm opacity-60 font-body">Services Limited</p>
               </div>
             </div>

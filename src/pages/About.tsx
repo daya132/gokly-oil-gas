@@ -21,7 +21,7 @@ const coreValues = [
 
 const stats = [
   { value: "10+", label: "Years of Excellence" },
-  { value: "200+", label: "Projects Delivered" },
+  { value: "600+", label: "Projects Delivered" },
   { value: "50+", label: "Expert Professionals" },
   { value: "16+", label: "Service Areas" },
 ];

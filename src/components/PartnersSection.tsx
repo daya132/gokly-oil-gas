@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import openseaLogo from "@/assets/partners/opeansea.jpg";
+import Shafa from "@/assets/partners/shafa1.png";
 import shellLogo from "@/assets/partners/shell.png";
 import nnpcLogo from "@/assets/partners/nnpc.png";
 import ncdmbLogo from "@/assets/partners/ncdmb.png";
-import rainoilLogo from "@/assets/partners/rainoil.png";
 import nmdpraLogo from "@/assets/partners/nmdpra.png";
 import nuprcLogo from "@/assets/partners/nuprc.jpeg"; 
 
@@ -12,8 +11,8 @@ const partners = [
   { name: "Shell", logo: shellLogo },
   { name: "Nigeria National Petroleum Company (NNPC Limited)", logo: nnpcLogo },
   { name: "Nigeria Content Development and Monitoring Board (NCDMB)", logo: ncdmbLogo },
-  { name: "Rainoil", logo: rainoilLogo },
-  { name: "Open Sea Oil & Gas", logo: openseaLogo },
+  { name: "Shafa", logo: Shafa},
+ 
   { name: "Nigeria Midstream and Downstream Petroleum Regulatory Authorithy (NMDPRA)", logo: nmdpraLogo },
   { name: "Nigeria Upstream Petroleum Regulatory Commission (NUPRC)", logo: nuprcLogo },
 ];

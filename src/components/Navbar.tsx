@@ -49,7 +49,7 @@ const Navbar = () => {
             />
             <div className="hidden sm:block">
               <h1 className="font-heading font-bold text-lg leading-tight text-foreground">
-                Gokly Oil & Gas
+                Gokly Oil and Gas
               </h1>
               <p className="text-xs text-muted-foreground font-body">
                 Services Limited
