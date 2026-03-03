@@ -57,7 +57,7 @@ const ChatBot = () => {
     {
       role: "bot",
       content:
-        "Hello! I'm G Bot 🤖, your Gokly Oil & Gas virtual assistant. I can help you with company information, our services, contact details, and general oil & gas questions. How can I assist you today?",
+        "Hello! I'm G Bot, Gokly Oil and Gas virtual assistant. I can help you with company information, our services, contact details, and general oil & gas questions. How can I assist you today?",
     },
   ]);
   const [input, setInput] = useState("");
